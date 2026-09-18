@@ -82,7 +82,17 @@ pip install opencv-python "mediapipe<0.10.15" pygame numpy
 5. Generate the Gunshot Sound File
 Run this one-line command in your terminal to generate the required gunshot.wav audio file using Python's standard library:
 ```
-python3 -c 'import wave, struct, random; rate, dur = 44100, 0.35; total = int(rate * dur); f = wave.open("gunshot.wav", "wb"); f.setnchannels(1); f.setsampwidth(2); f.setframerate(rate); [f.writeframesraw(struct.pack("<h", int(random.uniform(-1, 1) * ((1.0 - i / total)  3) * 32767))) for i in range(total)]; f.close(); print("Generated gunshot.wav successfully!")'
+python3 -c '
+import wave, struct, random
+rate, dur = 44100, 0.35
+total = int(rate * dur)
+with wave.open("gunshot.wav", "wb") as f:
+    f.setnchannels(1); f.setsampwidth(2); f.setframerate(rate)
+    for i in range(total):
+        val = int(random.uniform(-1, 1) * ((1.0 - i / total) ** 3) * 32767)
+        f.writeframesraw(struct.pack("<h", val))
+print("Generated gunshot.wav successfully!")
+'
 ```
 
 Camera Configuration
