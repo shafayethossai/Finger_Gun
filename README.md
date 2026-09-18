@@ -1,4 +1,5 @@
-Real-Time Finger Gun Detector 🎯🔫
+#Real-Time Finger Gun Detector 🎯🔫
+
 A real-time Computer Vision application that turns your hand into an interactive virtual laser gun using your smartphone's camera feed or a standard PC webcam. Built using MediaPipe for skeletal joint tracking, OpenCV for rendering and HUD display, and Pygame for dynamic sound synthesis.
 
 Overview
