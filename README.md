@@ -81,7 +81,9 @@ pip install opencv-python "mediapipe<0.10.15" pygame numpy
 
 5. Generate the Gunshot Sound File
 Run this one-line command in your terminal to generate the required gunshot.wav audio file using Python's standard library:
+```
 python3 -c 'import wave, struct, random; rate, dur = 44100, 0.35; total = int(rate * dur); f = wave.open("gunshot.wav", "wb"); f.setnchannels(1); f.setsampwidth(2); f.setframerate(rate); [f.writeframesraw(struct.pack("<h", int(random.uniform(-1, 1) * ((1.0 - i / total)  3) * 32767))) for i in range(total)]; f.close(); print("Generated gunshot.wav successfully!")'
+```
 
 Camera Configuration
 Option A: Using Your Smartphone as an IP Camera (Recommended)
@@ -94,11 +96,15 @@ Option A: Using Your Smartphone as an IP Camera (Recommended)
 4. Note the IPv4 address shown on your screen (e.g., [http://192.168.0.176:8080](http://192.168.0.176:8080)).
 
 5. Open app.py and set your URL:
+   ```
    CAMERA_URL = "http://<YOUR_PHONE_IP>:8080/video"
+   ```
 
 Option B: Using a Built-in or USB Webcam
 If using a standard PC webcam instead, change line 27 in app.py to:
+```
 cap = cv2.VideoCapture(0)
+```
 
 Running the Application
 Execute the main script from your activated virtual environment:
