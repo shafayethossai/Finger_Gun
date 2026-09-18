@@ -29,6 +29,7 @@ Phone (IP Webcam Feed) ──► OpenCV VideoCapture ──► MediaPipe (Joint 
                                                               │
                                                               ▼
 Display Window (OpenCV) ◄── Visual Effects & Audio ◄── Geometric State Machine
+```
 
 1. Palm Normalization: All joint distances are divided by the base palm length (Wrist 0 to Middle MCP 9). This makes gesture detection scale-invariant regardless of your distance from the lens.
 
