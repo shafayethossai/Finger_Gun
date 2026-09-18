@@ -96,7 +96,7 @@ print("Generated gunshot.wav successfully!")
 ```
 
 ### Camera Configuration
-#### ption A: Using Your Smartphone as an IP Camera (Recommended)
+#### Option A: Using Your Smartphone as an IP Camera (Recommended)
 1. Install IP Webcam (by Pavel Khlebovich) from the Google Play Store.
 
 2. Connect your phone and computer to the same Wi-Fi network.
@@ -110,7 +110,7 @@ print("Generated gunshot.wav successfully!")
    CAMERA_URL = "http://<YOUR_PHONE_IP>:8080/video"
    ```
 
-#### ption B: Using a Built-in or USB Webcam
+#### Option B: Using a Built-in or USB Webcam
 If using a standard PC webcam instead, change line 27 in app.py to:
 ```
 cap = cv2.VideoCapture(0)
@@ -121,7 +121,7 @@ Execute the main script from your activated virtual environment:
 
 python3 app.py
 
-Controls
+#### Controls
 1. Aim: Point your extended index finger at the screen
 
 2. Cock Gun: Raise your thumb upright until status displays READY / COCKED
