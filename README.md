@@ -45,15 +45,15 @@ Display Window (OpenCV) ◄── Visual Effects & Audio ◄── Geometric Sta
 
    2. Fire State: When the thumb rapidly snaps down (ratio < 0.45), the state transitions to BANG!, dispatching a projectile along the vector from landmark 5 to 8 and triggering audio.
 
-Getting Started
-Prerequisites
+##Getting Started
+###Prerequisites
 1. Python 3.9 – 3.11
 
 2. A smartphone with an IP camera app (e.g., IP Webcam on Android) OR a built-in PC webcam
 
 3. Linux/Ubuntu, macOS, or Windows
 
-Installation & Setup
+###Installation & Setup
 1. Clone the Repository
 ```
 git clone https://github.com/shafayethossai/Finger_Gun.git
@@ -95,8 +95,8 @@ print("Generated gunshot.wav successfully!")
 '
 ```
 
-Camera Configuration
-Option A: Using Your Smartphone as an IP Camera (Recommended)
+###Camera Configuration
+####Option A: Using Your Smartphone as an IP Camera (Recommended)
 1. Install IP Webcam (by Pavel Khlebovich) from the Google Play Store.
 
 2. Connect your phone and computer to the same Wi-Fi network.
@@ -110,7 +110,7 @@ Option A: Using Your Smartphone as an IP Camera (Recommended)
    CAMERA_URL = "http://<YOUR_PHONE_IP>:8080/video"
    ```
 
-Option B: Using a Built-in or USB Webcam
+####Option B: Using a Built-in or USB Webcam
 If using a standard PC webcam instead, change line 27 in app.py to:
 ```
 cap = cv2.VideoCapture(0)
