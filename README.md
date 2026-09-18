@@ -55,8 +55,10 @@ Prerequisites
 
 Installation & Setup
 1. Clone the Repository
-git clone https://github.com/shafayethossai/Finger_Gun.git
-cd Finger_Gun
+```
+  git clone https://github.com/shafayethossai/Finger_Gun.git
+  cd Finger_Gun
+```
 
 2. Create and Activate a Virtual Environment
 
