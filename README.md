@@ -1,31 +1,33 @@
-#Real-Time Finger Gun Detector 🎯🔫
+# Real-Time Finger Gun Detector 🎯🔫
 
 A real-time Computer Vision application that turns your hand into an interactive virtual laser gun using your smartphone's camera feed or a standard PC webcam. Built using MediaPipe for skeletal joint tracking, OpenCV for rendering and HUD display, and Pygame for dynamic sound synthesis.
 
-Overview
+---
+
+## Overview
+
 This project tracks 21 distinct hand landmarks in real time to recognize a finger-gun gesture. When you cock your thumb upright (ready state) and snap it down toward your palm (hammer release), the system registers a shot, generating:
 
-1. Animated Laser Projectiles: Dynamic bullets traveling along your exact aiming vector.
+- **Animated Laser Projectiles:** Dynamic bullets traveling along your exact aiming vector.
+- **Muzzle Flash:** Visual expansion rings rendered at the fingertip upon firing.
+- **Synthesized Audio:** Zero-latency gunshot sound effects triggered on state change.
+- **Interactive HUD:** Live status indicators (`AIMING`, `READY / COCKED`, `BANG!`) reflecting hand posture.
 
-2. Muzzle Flash: Visual expansion rings rendered at the fingertip upon firing.
+---
 
-3. Synthesized Audio: Zero-latency gunshot sound effects triggered on state change.
+## Tech Stack & Architecture
 
-4. Interactive HUD: Live status indicators (AIMING, READY / COCKED, BANG!) reflecting hand posture.
+- **OpenCV (`cv2`)**: Captures video frames over an IP/RTSP stream, renders graphics, overlays HUD status, and handles window events.
+- **MediaPipe (`Hands`)**: Performs real-time inference to extract normalized 3D coordinates for 21 skeletal hand landmarks.
+- **NumPy & Math**: Implements scale-invariant joint normalization and calculates 2D/3D trajectory vectors.
+- **Pygame Mixer**: Provides low-latency audio playback for gunshot sound effects.
 
-Tech Stack & Architecture
-1. OpenCV (cv2): Captures video frames over an IP/RTSP stream, renders graphics, overlays HUD status, and handles window events.
+### Architecture Pipeline
 
-2. MediaPipe (Hands): Performs real-time inference to extract normalized 3D coordinates for 21 skeletal hand landmarks.
-
-3. NumPy & Math: Implements scale-invariant joint normalization and calculates 2D/3D trajectory vectors.
-
-4. Pygame Mixer: Provides low-latency audio playback for gunshot sound effects.
-
-Architecture Pipeline
+```text
 Phone (IP Webcam Feed) ──► OpenCV VideoCapture ──► MediaPipe (Joint Inference)
-│
-▼
+                                                              │
+                                                              ▼
 Display Window (OpenCV) ◄── Visual Effects & Audio ◄── Geometric State Machine
 
 1. Palm Normalization: All joint distances are divided by the base palm length (Wrist 0 to Middle MCP 9). This makes gesture detection scale-invariant regardless of your distance from the lens.
