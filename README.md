@@ -63,8 +63,10 @@ Installation & Setup
 2. Create and Activate a Virtual Environment
 
    1. Linux / macOS:
+      ```
       python3 -m venv venv
       source venv/bin/activate
+      ```
 
    2. Windows:
       python -m venv venv
